@@ -9,3 +9,5 @@ func _physics_process(_delta: float) -> void:
 	velocity.y = 0
 	
 	move_and_slide()
+	
+	position.x = clamp(position.x, 16.0, 1136.0)
