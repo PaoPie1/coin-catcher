@@ -4,3 +4,7 @@ extends Area2D
 
 func _physics_process(delta: float) -> void:
 	position.y += fall_speed * delta
+
+func _on_body_entered(body: Node2D) -> void:
+	print("Caught by: ", body.name)
+	queue_free()
