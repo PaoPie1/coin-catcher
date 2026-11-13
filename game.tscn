@@ -1,12 +1,19 @@
 [gd_scene format=3 uid="uid://c0nx2epkpfapw"]
 
+[ext_resource type="Script" uid="uid://dclkk3415vyg8" path="res://game.gd" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://2rw5ir2mw87s" path="res://player.tscn" id="2_feb5d"]
 [ext_resource type="PackedScene" uid="uid://bk8nek4u1wgrn" path="res://coin.tscn" id="3_feb5d"]
 
 [node name="Game" type="Node2D" unique_id=337703206]
+script = ExtResource("1_feb5d")
 
 [node name="Player" parent="." unique_id=1247944127 instance=ExtResource("2_feb5d")]
 position = Vector2(576, 600)
 
 [node name="Coin" parent="." unique_id=2030863072 instance=ExtResource("3_feb5d")]
 position = Vector2(576, 100)
+
+[node name="CoinTimer" type="Timer" parent="." unique_id=752766026]
+autostart = true
+
+[connection signal="timeout" from="CoinTimer" to="." method="_on_coin_timer_timeout"]
