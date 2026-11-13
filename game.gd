@@ -1,15 +1,11 @@
 extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+var coin_scene: PackedScene = preload("res://coin.tscn")
 
 func _on_coin_timer_timeout() -> void:
-	print("Timer fired!")
+	var new_coin := coin_scene.instantiate()
+	new_coin.position = Vector2(randf_range(16.0, 1136.0), -20)
+	
+	add_child(new_coin)
+	
+	#print("Timer fired!")
